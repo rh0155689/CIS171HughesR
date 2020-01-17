@@ -15,7 +15,7 @@ public class DisplayCalendar {
         int month = getUserMonth();                   
         int day = 1; 
         /**
-         * Since Java is a 0 based language, we subtract one from the 
+         * Since Java is a 0 based language, I subtract one from the 
          * users input to display the correct month
          */
         month = month - 1;
@@ -74,38 +74,38 @@ public class DisplayCalendar {
          + " contains " + numOfDaysInMonth + " days");
         System.out.println(); 
     }
-
-      public static int getUserYear(){
-        int userYear = 0;
-        Scanner input;
-        while(true){
-          try{
-            input = new Scanner(System.in);
-            System.out.print("Enter a numeric year.(eg.2012): ");
-            userYear = input.nextInt();
-            //input.close();
-            return userYear;          
-          }
-          catch(Exception e){
-            System.out.print("Numeric input only");
-          }        
+    //This method takes in user year and verifies that it's numeric
+    public static int getUserYear(){
+      int userYear = 0;
+      Scanner input;
+      while(true){
+        try{
+          input = new Scanner(System.in);
+          System.out.print("Enter a numeric year.(eg.2012): ");
+          userYear = input.nextInt();
+          //input.close();
+          return userYear;          
         }
+        catch(Exception e){
+          System.out.print("Numeric input only \n");
+        }        
       }
-
-      public static int getUserMonth(){
-        int userMonth = 0;
-        Scanner input;
-        while(true){
-          try{
-            input = new Scanner(System.in);
-            System.out.print("Enter a numeric month.(eg 2, February): ");
-            userMonth = input.nextInt();
-            //input.close();
-            return userMonth;
-          }
-          catch(Exception e){
-            System.out.print("Numeric input only");
-          }        
+    }
+    //This method takes in user month and verifies it's numeric
+    public static int getUserMonth(){
+      int userMonth = 0;
+      Scanner input;
+      while(true){
+        try{
+          input = new Scanner(System.in);
+          System.out.print("Enter a numeric month.(eg. 2 = Feb.): ");
+          userMonth = input.nextInt();
+          //input.close();
+          return userMonth;
         }
+        catch(Exception e){
+          System.out.print("Numeric input only \n");
+        }        
       }
+    }
 }
