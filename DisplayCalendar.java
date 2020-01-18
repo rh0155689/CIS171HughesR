@@ -34,21 +34,16 @@ public class DisplayCalendar {
         int startDay = gregCal.get(Calendar.DAY_OF_WEEK);
     
         //get number of days in the month
-        int numOfDaysInMonth = 0;
-        
-        if(month == 0 || month == 2 || month == 4 || month == 6 ||
-         month == 7 || month == 9 || month == 11){
-          numOfDaysInMonth = 31;
-        }
-        else if(month == 1 && year % 4 != 0){ //Not a leap year
+        int numOfDaysInMonth = 
+        gregCal.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        //determine if the year entered is a leap year
+        if(month == 1 && year % 4 != 0){ //Not a leap year
           numOfDaysInMonth = 28;
         }
         else if(month == 1 && year % 4 == 0){ //During a leap year
           numOfDaysInMonth = 29;
-        }
-        else{
-          numOfDaysInMonth = 30;
-        }
+        }        
 
         //Set spacing of calendar display
         int i = 0;        
