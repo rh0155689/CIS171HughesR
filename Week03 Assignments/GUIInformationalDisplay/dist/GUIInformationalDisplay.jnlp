@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="GUIInformationalDisplay.jnlp">
+  <information>
+    <title>GUIInformationalDisplay</title>
+    <vendor>Rockus</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="GUIInformationalDisplay.jar" size="94233" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="GUIInformationalDisplay" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="guiinformationaldisplay.GUIInformationalDisplay"  name="GUIInformationalDisplay" />
+  <update check="always"/>
+</jnlp>

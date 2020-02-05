@@ -37,8 +37,5 @@ public abstract class GeometricObject implements Comparable<GeometricObject> {
       return o1;
       else     
       return o2;
-    }
-
-    
-    
+    }    
 }
