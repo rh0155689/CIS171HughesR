@@ -4,9 +4,9 @@ This program creates a Subway sandwich ordering system using JavaFX components
 
 ## Example Output
 
-This image will display as your example output. Name the image README.jpg in your project folder.
+This image will display as your example output. Name the image README.JPG in your project folder.
 
-![Sample Output](READMEv1PreStyle.JPG, READMEv1PostStyling.JPG, READMEv2NoStyle.JPG, READMEvFinal.JPG)
+![Sample Output](READMEvFinal.JPG)
 
 ## Analysis Steps
 
