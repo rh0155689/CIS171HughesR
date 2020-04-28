@@ -9,6 +9,7 @@ import static java.util.stream.DoubleStream.builder;
 import static java.util.stream.IntStream.builder;
 import static java.util.stream.Stream.builder;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
@@ -40,7 +41,8 @@ public class SubwayOrderSystem extends Application {
     private String[] meat = {"Without meat", "Ham", "Turkey", "Chicken Breast", "Tuna", "Meatball", "Roast Beef", "Steak"};    
     private String[] cheese = {"Without cheese", "American", "Pepper Jack", "Cheddar", "Provolone", "Swiss"};
     private String[] veggies = {"Without veggies", "Lettuce", "Tomatoe", "Onion", "Pickle", "Black Olive", "Green Peppers", "Jalapenos", "Salad Peppers"};
-            
+    private String[] veggies2 = {"Without second veggie", "Lettuce", "Tomatoe", "Onion", "Pickle", "Black Olive", "Green Peppers", "Jalapenos", "Salad Peppers"};    
+    private String[] veggies3 = {"Without third veggie", "Lettuce", "Tomatoe", "Onion", "Pickle", "Black Olive", "Green Peppers", "Jalapenos", "Salad Peppers"};           
 
     private String[] sauce = {"Without sauce", "Mustard", "Mayo", "Spicy Mustard", "Honey Mustard", "Southwest sauce", "Ranch sauce", "Sweet-onion sauce"};
     private Boolean saltAndPepper = false;
@@ -54,8 +56,10 @@ public class SubwayOrderSystem extends Application {
   // Create a combo box for selecting cheese
   private ComboBox<String> cboCheese = new ComboBox<>();
   // Create a combo box for selecting veggies
-  private ListView<String> lvVeggies = new ListView<>();
-  
+  //private ListView<String> lvVeggies = new ListView<>();
+  private ComboBox<String> cboVeggies = new ComboBox<>();
+    private ComboBox<String> cboVeggies2 = new ComboBox<>();
+      private ComboBox<String> cboVeggies3 = new ComboBox<>();
 
     
   // Create a combo box for selecting sauce
@@ -98,12 +102,33 @@ public class SubwayOrderSystem extends Application {
         cboCheese.setValue(" ");
         
 //        //veggies = new ListView<>();
-        gridPane.add(new Label(" Select type of veggies: "), 0, 4); 
-        gridPane.add(lvVeggies, 1, 4, 1, 1);
-        //veggies.getItems().addAll("Without veggies", "Lettuce", "Tomatoe", "Onion", "Pickle", "Black Olive", "Green Peppers", "Jalapenos", "Salad Peppers");
-        lvVeggies.setPrefWidth(260);
-        lvVeggies.setMaxWidth(260);
-        lvVeggies.setPrefHeight(150);        
+//        gridPane.add(new Label(" Select type of veggies: "), 0, 4); 
+//        gridPane.add(lvVeggies, 1, 4, 1, 1);
+//        //veggies.getItems().addAll("Without veggies", "Lettuce", "Tomatoe", "Onion", "Pickle", "Black Olive", "Green Peppers", "Jalapenos", "Salad Peppers");
+//        lvVeggies.setPrefWidth(260);
+//        lvVeggies.setMaxWidth(260);
+//        lvVeggies.setPrefHeight(150);        
+        
+        gridPane.setHgap(5);
+        gridPane.setVgap(5);
+        gridPane.add(new Label(" Select type of veggies: "), 0, 4);       
+        gridPane.add(cboVeggies, 1, 4);
+        cboVeggies.setPrefWidth(400);
+        cboVeggies.setValue(" ");
+        
+        gridPane.setHgap(5);
+        gridPane.setVgap(5);
+        gridPane.add(new Label(" Select second veggie: "), 0, 5);       
+        gridPane.add(cboVeggies2, 1, 5);
+        cboVeggies2.setPrefWidth(400);
+        cboVeggies2.setValue(" ");
+        
+        gridPane.setHgap(5);
+        gridPane.setVgap(5);
+        gridPane.add(new Label(" Select third veggie: "), 0, 6);       
+        gridPane.add(cboVeggies3, 1, 6);
+        cboVeggies3.setPrefWidth(400);
+        cboVeggies3.setValue(" ");
         
         
         
@@ -150,10 +175,22 @@ public class SubwayOrderSystem extends Application {
       FXCollections.observableArrayList(cheese);
     cboCheese.getItems().addAll(cheeseItem); // Add items to combo box
     
-    ObservableList<String> veggieItems = 
+//    ObservableList<String> veggieItems = 
+//      FXCollections.observableArrayList(veggies);
+//    lvVeggies.setItems(veggieItems);
+//    lvVeggies.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);   
+
+    ObservableList<String> veggieItem = 
       FXCollections.observableArrayList(veggies);
-    lvVeggies.setItems(veggieItems);
-    lvVeggies.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);   
+    cboVeggies.getItems().addAll(veggieItem); // Add items to combo box
+    
+    ObservableList<String> veggieItem2 = 
+      FXCollections.observableArrayList(veggies2);
+    cboVeggies2.getItems().addAll(veggieItem2); // Add items to combo box
+    
+    ObservableList<String> veggieItem3 = 
+      FXCollections.observableArrayList(veggies3);
+    cboVeggies3.getItems().addAll(veggieItem3); // Add items to combo box
     
     ObservableList<String> sauceItem = 
       FXCollections.observableArrayList(sauce);
@@ -172,28 +209,30 @@ public class SubwayOrderSystem extends Application {
             String b = (cboBread.getValue());
             String m = (cboMeat.getValue());
             String c = (cboCheese.getValue());  
-                   
+            String v1 = (cboVeggies.getValue());
+            String v2 = (cboVeggies2.getValue());
+            String v3 = (cboVeggies3.getValue());
             String sa = (cboSauce.getValue());
             
-            lvVeggies.getSelectionModel().selectedItemProperty()
-            .addListener((ObservableValue<? extends String> ov, String old_val, String new_val) -> {
-             ObservableList<String> selectedItems = lvVeggies.getSelectionModel().getSelectedItems();
+//            lvVeggies.getSelectionModel().selectedItemProperty()
+//            .addListener((ObservableValue<? extends String> ov, String old_val, String new_val) -> {
+//             ObservableList<String> selectedItems = lvVeggies.getSelectionModel().getSelectedItems();
+//
+//             StringBuilder builder = new StringBuilder(" ");               
 
-             StringBuilder builder = new StringBuilder(" ");               
-
-             for (String name : selectedItems) {
-              builder.append(name + "\n"); 
-             }                 
+//             for (String name : selectedItems) {
+//              builder.append(name + "\n"); 
+//             }                 
 
             if(sAP.isSelected()){
                 saltAndPepper = true;
             taDescription.appendText("You would like a: \n" + s + " sub sandwich,\n on " + b + " bread,\n With: \n" + m + ",\n" + c +
-                     ",\n" + builder.toString() +  " and\n" + sa + "\nAdd salt and pepper"); 
+                     ",\n" + v1 + ",\n" + v2 + ",\n" + v3 +  " and\n" + sa + "\nAdd salt and pepper"); 
             }else {
             taDescription.appendText("You would like a: \n" + s + " sub sandwich,\n on " + b + " bread,\n With: \n" + m + ",\n" + c + 
-                    ",\n" + builder.toString() + " and\n" + sa + "\nWithout salt and pepper"); 
+                    ",\n" + v1 + ",\n" + v2 + ",\n" + v3 + " and\n" + sa + "\nWithout salt and pepper"); 
             }
-           }); 
+           //}); 
         }
     });
         
