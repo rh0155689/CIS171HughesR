@@ -194,15 +194,7 @@ public class SubwayOrderSystem extends Application {
         btnBuild.setStyle("-fx-background-color: #1F2F16;");
         gridPane.setHgap(5);
         gridPane.setVgap(5);
-        gridPane.add(btnBuild, 2, 18);
-        
-//        Button btnClear = new Button("New Sandwich");
-//        btnClear.setStyle("-fx-background-radius: 10px;");
-//        btnClear.setTextFill(Color.WHITE);
-//        btnClear.setStyle("-fx-background-color: #1F2F16;");
-//        gridPane.setHgap(15);
-//        gridPane.setVgap(5);
-//        gridPane.add(btnClear, 2, 19);
+        gridPane.add(btnBuild, 2, 18);        
 
         /**
          * Create CheckBox instance that will take in whether the user would like
@@ -262,7 +254,7 @@ public class SubwayOrderSystem extends Application {
         
         /**
          * Create the ActionEvent for the button click by creating instance variables
-         * for each array value and concatinating them into a printed string based on those values
+         * for each array value and concatenate them into a printed string based on those values
          */
         btnBuild.setOnAction((ActionEvent e) -> {
             String s = (cboSize.getValue());
@@ -283,20 +275,13 @@ public class SubwayOrderSystem extends Application {
                         ",\n" + v1 + ",\n" + v2 + ",\n" + v3 + " and\n" + sa + "\nWithout salt and pepper");
             }
         } // Override the handle method
-        );
-        
-//        btnClear.setOnAction(ActionEvent e) -> {
-//        if(btnClear.isPressed() == true){
-//        cboSize.setValue(null);
-//        }
-//        );
+        );      
         
         Scene scene = new Scene(gridPane, 725, 750); // Create the scene and place GridPane inside
         primaryStage.setTitle("Subway Order System"); // Set title
         primaryStage.setScene(scene); // Set scene
         primaryStage.show(); // Show scene
-    }
-    
+    }    
 
     /**
      * @param args the command line arguments
