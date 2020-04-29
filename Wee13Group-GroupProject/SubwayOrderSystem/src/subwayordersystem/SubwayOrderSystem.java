@@ -195,6 +195,14 @@ public class SubwayOrderSystem extends Application {
         gridPane.setHgap(5);
         gridPane.setVgap(5);
         gridPane.add(btnBuild, 2, 18);
+        
+//        Button btnClear = new Button("New Sandwich");
+//        btnClear.setStyle("-fx-background-radius: 10px;");
+//        btnClear.setTextFill(Color.WHITE);
+//        btnClear.setStyle("-fx-background-color: #1F2F16;");
+//        gridPane.setHgap(15);
+//        gridPane.setVgap(5);
+//        gridPane.add(btnClear, 2, 19);
 
         /**
          * Create CheckBox instance that will take in whether the user would like
@@ -277,11 +285,18 @@ public class SubwayOrderSystem extends Application {
         } // Override the handle method
         );
         
+//        btnClear.setOnAction(ActionEvent e) -> {
+//        if(btnClear.isPressed() == true){
+//        cboSize.setValue(null);
+//        }
+//        );
+        
         Scene scene = new Scene(gridPane, 725, 750); // Create the scene and place GridPane inside
         primaryStage.setTitle("Subway Order System"); // Set title
         primaryStage.setScene(scene); // Set scene
         primaryStage.show(); // Show scene
     }
+    
 
     /**
      * @param args the command line arguments
